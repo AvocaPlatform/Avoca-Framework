@@ -201,9 +201,6 @@ class AvocaController extends AvocaBaseController
     /**
      * @param null $template
      * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
      */
     protected function fetch_display($template = null)
     {
@@ -221,9 +218,6 @@ class AvocaController extends AvocaBaseController
      *
      * @param bool $return
      * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
      */
     protected function display($return = false)
     {
@@ -364,10 +358,7 @@ class AvocaController extends AvocaBaseController
     }
 
     /**
-     * @return bool
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws \Exception
      */
     public function __destruct()
     {
