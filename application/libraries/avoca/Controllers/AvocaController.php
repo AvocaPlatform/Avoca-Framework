@@ -201,6 +201,9 @@ class AvocaController extends AvocaBaseController
     /**
      * @param null $template
      * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     protected function fetch_display($template = null)
     {
@@ -218,6 +221,9 @@ class AvocaController extends AvocaBaseController
      *
      * @param bool $return
      * @return string
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     protected function display($return = false)
     {
@@ -316,7 +322,7 @@ class AvocaController extends AvocaBaseController
             if (strpos($css, 'https') !== false || strpos($css, 'http') !== false) {
                 $link[] = $css;
             } else {
-                $link[] = base_url() . $css;
+                $link[] = avoca_static() . $css;
             }
         }
 
@@ -332,7 +338,7 @@ class AvocaController extends AvocaBaseController
             if (strpos($js, 'https') !== false || strpos($js, 'http') !== false) {
                 $src[] = $js;
             } else {
-                $src[] = base_url() . $js;
+                $src[] = avoca_static() . $js;
             }
         }
 
@@ -358,7 +364,10 @@ class AvocaController extends AvocaBaseController
     }
 
     /**
-     * @throws \Exception
+     * @return bool
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
      */
     public function __destruct()
     {
