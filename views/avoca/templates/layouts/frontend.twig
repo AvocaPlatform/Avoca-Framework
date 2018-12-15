@@ -8,6 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ avoca_static() }}/css/bootstrap.min.css">
 
+    {% for css in _CSS %}
+        <link rel="stylesheet" href="{{ css }}">
+    {% endfor %}
+
     <title>{{ _pageTitle }}</title>
 </head>
 <body>
@@ -20,5 +24,10 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="{{ avoca_static() }}/js/jquery-3.3.1.min.js"></script>
 <script src="{{ avoca_static() }}/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+{% for js in _JS %}
+    <script src="{{ js }}"></script>
+{% endfor %}
+
 </body>
 </html>
