@@ -64,7 +64,13 @@ function avoca_url($uri = '', $protocol = NULL)
  */
 function avoca_static()
 {
-    return avoca_url('/themes/' . config_item('theme_folder'));
+    $uri = '/themes/' . config_item('theme_folder');
+    $public_foder = config_item('public_folder');
+    if ($public_foder) {
+        $uri = '/' . $public_foder . $uri;
+    }
+
+    return avoca_url($uri);
 }
 
 function avoca_currentUrl()
