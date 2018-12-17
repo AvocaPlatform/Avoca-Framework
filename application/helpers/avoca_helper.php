@@ -149,10 +149,10 @@ function fieldLabel($field, $option = [])
  *
  * @param $field
  * @param $value
- * @param array $option
+ * @param mixed $option
  * @return string
  */
-function avoca_form($field, $value, $option = [])
+function avoca_form($field, $value, $option = true)
 {
     $fieldModel = new \Avoca\Libraries\AvocaField();
     return $fieldModel->form($field, $value, $option);
