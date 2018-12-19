@@ -39,3 +39,19 @@ if(!function_exists('fieldForm_date')) {
         return '<input ' . _parse_form_attributes($extra, $defaults) . ' />';
     }
 }
+
+if (!function_exists('fieldForm_dropdown')) {
+    function fieldForm_dropdown($field, $value, $option = [])
+    {
+        $list_string = (!empty($option['options'])) ? $option['options'] : '';
+        if (!$list_string) {
+            $options = [];
+        } else {
+            $options = getAppListStrings($list_string);
+        }
+
+        $extra = $option;
+        unset($extra['options']);
+        return form_dropdown($field, $options, $value, $extra);
+    }
+}
